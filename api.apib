@@ -10,8 +10,55 @@ This is a simple API for managing very useful tools.
 
 ### Create a new Tool [POST]
 
++ Request (application/json)
+
+  + Body
+
+            {
+              "title": "hotel",
+              "link": "https://github.com/typicode/hotel",
+              "description": "Local app manager. Start apps within your browser, developer tool with local .localhost domain and https out of the box.",
+              "tags":["node", "organizing", "webapps", "domain", "developer", "https", "proxy"]
+            }
+
++ Response 201 (application/json)
+
+  + Attributes (Tool)
+
 ### List all tools [GET]
+
++ Response 200 (application/json)
+
+  + Attributes (array[Tool])
+
+## Tool filter [/tools{?tag}]
 
 ### Filter tools by tag [GET]
 
++ Parameters
+
+  + tag
+
++ Response 200 (application/json)
+
+  + Attributes (Tool)
+
+## Tool filter [/tools/{id}]
+
 ### Delete tool by id [DELETE]
+
++ Parameters
+
+  + id
+
++ Response 204 (application/json)
+
+## Data structures
+
+### Tool
+
+- id: fe959a1d-02ff-4199-832c-af7c76015602 (string, required)
+- title: json-server (string, required)
+- link: https://github.com/typicode/json-server (string, required)
+- description: Fake REST API based on a json schema. Useful for mocking and creating APIs for front-end devs to consume in coding challenges. (string, required)
+- tags : api, json, schema, node, github, rest. (array[string])
