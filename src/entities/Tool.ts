@@ -1,14 +1,14 @@
 import {
   Entity,
   Column,
-  PrimaryColumn,
   CreateDateColumn,
   UpdateDateColumn,
+  PrimaryGeneratedColumn,
 } from 'typeorm';
 
 @Entity('tools')
 class Tool {
-  @PrimaryColumn('uuid')
+  @PrimaryGeneratedColumn('uuid')
   id: string;
 
   @Column()
@@ -20,8 +20,8 @@ class Tool {
   @Column()
   link: string;
 
-  @Column({ array: true })
-  tags: string;
+  @Column('text', { array: true })
+  tags: string[];
 
   @CreateDateColumn()
   created_at: Date;

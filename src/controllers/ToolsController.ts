@@ -8,13 +8,13 @@ export default class ToolsController {
     const { title, link, description, tags } = request.body;
     const createToolService = container.resolve(CreateToolService);
 
-    await createToolService.execute({
+    const tool = await createToolService.execute({
       title,
       link,
       description,
       tags,
     });
 
-    return response.status(201).send('Created');
+    return response.status(201).json(tool);
   }
 }

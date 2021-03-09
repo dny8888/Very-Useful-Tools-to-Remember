@@ -12,17 +12,18 @@ class ToolsRepository implements IToolsRepository {
   }
 
   public async create({
+    title,
     description,
     link,
     tags,
-    title,
   }: ICreateToolDTO): Promise<Tool> {
     const tool = this.ormRepository.create({
+      title,
       description,
       link,
       tags,
-      title,
     });
+
     await this.ormRepository.save(tool);
     return tool;
   }

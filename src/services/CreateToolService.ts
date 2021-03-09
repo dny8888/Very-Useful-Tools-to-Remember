@@ -24,7 +24,7 @@ class CreateToolService {
     description,
     tags,
   }: IRequestDTO): Promise<Tool> {
-    const tool = this.toolsRepository.create({
+    const tool = await this.toolsRepository.create({
       title,
       link,
       description,
