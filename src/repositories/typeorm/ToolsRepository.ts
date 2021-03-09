@@ -27,5 +27,11 @@ class ToolsRepository implements IToolsRepository {
     await this.ormRepository.save(tool);
     return tool;
   }
+
+  public async findAll(): Promise<Tool[]> {
+    const tools = await this.ormRepository.find();
+
+    return tools;
+  }
 }
 export default ToolsRepository;
