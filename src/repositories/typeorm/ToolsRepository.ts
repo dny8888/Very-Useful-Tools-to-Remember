@@ -1,4 +1,4 @@
-import { getRepository, Repository } from 'typeorm';
+import { getRepository, In, Repository } from 'typeorm';
 import Tool from '../../entities/Tool';
 
 import IToolsRepository from '../prototypes/IToolsRepository';
@@ -32,6 +32,10 @@ class ToolsRepository implements IToolsRepository {
     const tools = await this.ormRepository.find();
 
     return tools;
+  }
+
+  public async deleteById(id: string): Promise<void> {
+    await this.ormRepository.delete(id);
   }
 }
 export default ToolsRepository;

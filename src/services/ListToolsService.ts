@@ -10,10 +10,17 @@ class ListToolsService {
     private toolsRepository: IToolsRepository,
   ) {}
 
-  public async execute(): Promise<Tool[]> {
+  public async execute(tag: string): Promise<Tool[]> {
     const tools = await this.toolsRepository.findAll();
 
-    return tools;
+    if (!tag) {
+      return tools;
+    }
+
+    const filteredTools = tools.filter(tool => {
+      return tool.tags.find(element => element === tag);
+    });
+    return filteredTools;
   }
 }
 
