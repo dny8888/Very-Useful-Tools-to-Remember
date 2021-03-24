@@ -10,7 +10,7 @@ export default class DeleteToolService {
     private toolsRepository: IToolsRepository,
   ) {}
 
-  public async execute(id: string): Promise<void> {
-    return this.toolsRepository.deleteById(id);
+  public execute(id: string): void {
+    this.toolsRepository.deleteById(id);
   }
 }

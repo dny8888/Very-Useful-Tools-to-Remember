@@ -8,7 +8,7 @@ class ListToolsService {
   constructor(
     @inject('ToolsRepository')
     private toolsRepository: IToolsRepository,
-  ) {}
+  ) { }
 
   public async execute(tag: string): Promise<Tool[]> {
     const tools = await this.toolsRepository.findAll();

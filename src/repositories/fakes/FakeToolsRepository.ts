@@ -21,6 +21,14 @@ class FakeToolsRepository implements IToolsRepository {
 
     return tool;
   }
+
+  public async findAll(): Promise<Tool[]> {
+    return this.tools;
+  }
+
+  public async deleteById(id: string): Promise<void> {
+    this.tools.map(tool => tool.id !== id);
+  }
 }
 
 export default FakeToolsRepository;

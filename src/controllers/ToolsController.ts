@@ -31,10 +31,7 @@ export default class ToolsController {
     return response.json(tools);
   }
 
-  public async destroy(
-    request: Request,
-    response: Response,
-  ): Promise<Response> {
+  public destroy(request: Request, response: Response): Response {
     const { id } = request.params;
 
     const deleteToolService = container.resolve(DeleteToolService);
